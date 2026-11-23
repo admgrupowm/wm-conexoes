@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WM Mangueiras e Conexões | Grupo WM - Excelência Hidráulica e Industrial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wm: {
+              dark: '#0A0A0C',
+              surface: '#131317',
+              card: '#1A1A20',
+              border: '#2A2A34',
+              gold: '#D4AF37',
+              goldLight: '#F4D36B',
+              goldDark: '#997A15',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(212, 175, 55, 0.22)',
+            'gold-sm': '0 4px 14px rgba(212, 175, 55, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0A0A0C;
+      color: #F5F5F7;
+      overflow-x: hidden;
+    }
+
+    /* Gradientes Dourados Metálicos */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #F6E08B 0%, #D4AF37 45%, #AA8214 85%, #F3D060 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #E8C558 0%, #C59B27 50%, #9E7812 100%);
+    }
+
+    .gold-gradient-bg:hover {
+      background: linear-gradient(135deg, #F4D36B 0%, #D4AF37 50%, #B38919 100%);
+    }
+
+    .gold-border-subtle {
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .gold-border-subtle:hover {
+      border-color: rgba(212, 175, 55, 0.65);
+    }
+
+    /* Padrão industrial sutil de fundo */
+    .industrial-grid {
+      background-image: 
+        radial-gradient(circle at 75% 25%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 15% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+    }
+
+    /* Flutuação suave do Mascote */
+    @keyframes floatMascot {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-mascot {
+      animation: floatMascot 4.5s ease-in-out infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0A0C;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2A2A34;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+
+    /* Animação do Chat Typing */
+    .typing-dot {
+      animation: typingPulse 1.4s infinite ease-in-out both;
+    }
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+    @keyframes typingPulse {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-wm-gold selection:text-wm-dark">
+
+  <!-- Toast Notification Container (Substitui alert/confirm) -->
+  <div id="toast-container" class="fixed top-20 right-4 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ===================================================================== -->
+  <!-- NAVEGAÇÃO SUPERIOR (HEADER)                                           -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-wm-dark/90 backdrop-blur-md border-b border-wm-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo WM Mangueiras e Conexões -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <img 
+          src="Captura_de_tela_2026-03-15_110853-removebg-preview.png" 
+          alt="WM Mangueiras e Conexões" 
+          class="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+        />
+      </a>
+
+      <!-- Links Desktop -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-300">
+        <a href="#inicio" class="hover:text-wm-goldLight transition-colors">Início</a>
+        <a href="#sobre" class="hover:text-wm-goldLight transition-colors">Sobre Nós</a>
+        <a href="#guia-didatico" class="hover:text-wm-goldLight transition-colors">Guia Didático</a>
+        <a href="#catalogo" class="hover:text-wm-goldLight transition-colors">Catálogo</a>
+        <a href="#contato" class="hover:text-wm-goldLight transition-colors">Localização & Contato</a>
+      </nav>
+
+      <!-- Ações Rápidas Header -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a id="nav-whatsapp-btn" href="https://wa.me/5511945653485" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-lg shadow-emerald-950/50">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Falar com Vendedor</span>
+        </a>
+
+        <button onclick="openAdminModal()" 
+                class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-wm-card hover:bg-wm-border border border-wm-border text-zinc-300 hover:text-wm-goldLight text-xs font-medium transition-all"
+                title="Área do Administrador">
+          <i data-lucide="lock" class="w-3.5 h-3.5 text-wm-gold"></i>
+          <span>Admin</span>
+        </button>
+      </div>
+
+      <!-- Botão Menu Mobile -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-wm-card border border-wm-border text-zinc-200">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Menu Mobile Expandido -->
+    <div id="mobile-menu" class="hidden md:hidden bg-wm-surface border-b border-wm-border px-4 pt-3 pb-5 space-y-3">
+      <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-sm text-zinc-200 hover:text-wm-goldLight">Início</a>
+      <a href="#sobre" onclick="toggleMobileMenu()" class="block py-2 text-sm text-zinc-200 hover:text-wm-goldLight">Sobre Nós</a>
+      <a href="#guia-didatico" onclick="toggleMobileMenu()" class="block py-2 text-sm text-zinc-200 hover:text-wm-goldLight">Guia Didático</a>
+      <a href="#catalogo" onclick="toggleMobileMenu()" class="block py-2 text-sm text-zinc-200 hover:text-wm-goldLight">Catálogo</a>
+      <a href="#contato" onclick="toggleMobileMenu()" class="block py-2 text-sm text-zinc-200 hover:text-wm-goldLight">Localização & Contato</a>
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="https://wa.me/5511945653485" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-semibold text-sm">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Vendedor WhatsApp (11) 94565-3485
+        </a>
+        <button onclick="toggleMobileMenu(); openAdminModal();"
+                class="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-wm-card border border-wm-border text-zinc-300 text-xs">
+          <i data-lucide="lock" class="w-3.5 h-3.5 text-wm-gold"></i>
+          Área do Administrador
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- SEÇÃO 1: BOAS-VINDAS (HERO) COM MASCOTE OFICIAL                       -->
+  <!-- ===================================================================== -->
+  <section id="inicio" class="relative industrial-grid pt-10 pb-16 sm:pt-16 sm:pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Texto Principal -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-wm-card border border-wm-gold/30 text-wm-goldLight text-xs font-semibold tracking-wide uppercase">
+            <span class="w-2 h-2 rounded-full bg-wm-gold animate-pulse"></span>
+            Grupo WM • Soluções Hidráulicas e Industriais
+          </div>
+
+          <h1 id="hero-title" class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[3.35rem] leading-[1.12] tracking-tight text-white">
+            Força, Precisão e Conexões que <span class="gold-gradient-text">Movem a Sua Operação.</span>
+          </h1>
+
+          <p id="hero-subtitle" class="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Bem-vindo à <strong>WM Mangueiras e Conexões</strong>! Aqui você encontra mangueiras hidráulicas de alta pressão, terminais prensados, adaptadores, engates rápidos e linhas industriais com atendimento técnico descomplicado e entrega ágil.
+          </p>
+
+          <!-- CTAs Principais -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#catalogo" 
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl gold-gradient-bg text-wm-dark font-display font-bold text-sm sm:text-base shadow-gold-glow transition-transform hover:-translate-y-0.5">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+              Explorar Catálogo
+            </a>
+
+            <a id="hero-whatsapp-btn" href="https://wa.me/5511945653485?text=Olá!%20Vim%20pelo%20site%20da%20WM%20Mangueiras%20e%20Conexões%20e%20preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-wm-card hover:bg-wm-border border border-wm-gold/40 text-white font-semibold text-sm sm:text-base transition-all">
+              <i data-lucide="message-circle" class="w-5 h-5 text-emerald-400"></i>
+              Cotar no WhatsApp
+            </a>
+          </div>
+
+          <!-- Diferenciais Rápidos -->
+          <div class="grid grid-cols-3 gap-3 sm:gap-6 pt-6 border-t border-wm-border/80 max-w-xl mx-auto lg:mx-0">
+            <div>
+              <p class="font-display font-extrabold text-xl sm:text-2xl gold-gradient-text">+1.500</p>
+              <p class="text-xs text-zinc-400 mt-0.5">Itens em Estoque</p>
+            </div>
+            <div>
+              <p class="font-display font-extrabold text-xl sm:text-2xl gold-gradient-text">Alta Pressão</p>
+              <p class="text-xs text-zinc-400 mt-0.5">Montagem na Hora</p>
+            </div>
+            <div>
+              <p class="font-display font-extrabold text-xl sm:text-2xl gold-gradient-text">Suporte IA</p>
+              <p class="text-xs text-zinc-400 mt-0.5">Atendimento Técnico</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mascote Oficial WM -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+          <div class="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-wm-gold/15 blur-3xl -z-10"></div>
+          
+          <div class="relative animate-mascot">
+            <img 
+              src="Design_sem_nome__2_-removebg-preview.png" 
+              alt="Mascote Oficial WM Mangueiras e Conexões" 
+              class="w-64 sm:w-80 lg:w-96 h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)]"
+            />
+          </div>
+
+          <!-- Balão Interativo do Mascote -->
+          <div class="mt-2 bg-wm-card/90 backdrop-blur-md border border-wm-gold/40 rounded-2xl p-4 max-w-sm text-center shadow-gold-sm">
+            <p class="text-xs sm:text-sm text-zinc-200">
+              <span class="text-wm-goldLight font-bold">Olá! Eu sou o especialista WM.</span> Ficou na dúvida sobre qual rosca ou mangueira escolher?
+            </p>
+            <button onclick="openAIChatWithPrompt('Olá! Preciso de ajuda para escolher uma mangueira ou conexão.')" 
+                    class="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-wm-goldLight hover:underline">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              Perguntar ao Suporte IA agora →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SEÇÃO 2: APRESENTAÇÃO DA LOJA & GRUPO WM                              -->
+  <!-- ===================================================================== -->
+  <section id="sobre" class="py-16 sm:py-20 bg-wm-surface border-y border-wm-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Brasão Grupo WM -->
+        <div class="lg:col-span-4 flex flex-col items-center justify-center">
+          <div class="p-8 rounded-3xl bg-gradient-to-b from-wm-card to-wm-dark border border-wm-gold/30 shadow-gold-glow flex flex-col items-center text-center">
+            <img 
+              src="WhatsApp_Image_2026-07-24_at_08.23.05-removebg-preview (1).png" 
+              alt="Brasão Grupo WM" 
+              class="w-52 sm:w-64 h-auto object-contain mb-4 drop-shadow-[0_10px_20px_rgba(212,175,55,0.25)]"
+            />
+            <span class="text-xs uppercase tracking-[0.25em] text-wm-goldLight font-semibold">Tradição & Confiança</span>
+          </div>
+        </div>
+
+        <!-- História e Estrutura -->
+        <div class="lg:col-span-8 space-y-5">
+          <span class="text-xs font-bold uppercase tracking-widest text-wm-gold">Quem Somos</span>
+          <h2 id="about-title" class="font-display font-bold text-2xl sm:text-4xl text-white">
+            Especialistas em Conectar Resultados com Segurança e Agilidade
+          </h2>
+          <p id="about-text" class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+            A <strong>WM Mangueiras e Conexões</strong> nasceu com o propósito de eliminar paradas inesperadas na sua operação. Integrante do <strong>Grupo WM</strong>, oferecemos uma linha completa de mangueiras hidráulicas de baixa, média, alta e super alta pressão, mangueiras industriais (ar, água, óleo, sucção e descarga), além de conexões prensadas, adaptadores roscados e engates rápidos. Nosso atendimento técnico ajuda você a identificar exatamente a peça certa, mesmo que você não saiba o código técnico!
+          </p>
+
+          <!-- Pilares da Loja -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3">
+            <div class="p-4 rounded-2xl bg-wm-card border border-wm-border gold-border-subtle transition-all">
+              <div class="w-10 h-10 rounded-xl bg-wm-gold/15 flex items-center justify-center text-wm-gold mb-3">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-display font-bold text-white text-sm">Qualidade Certificada</h3>
+              <p class="text-xs text-zinc-400 mt-1">Componentes testados para suportar altas pressões e condições severas de trabalho.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-wm-card border border-wm-border gold-border-subtle transition-all">
+              <div class="w-10 h-10 rounded-xl bg-wm-gold/15 flex items-center justify-center text-wm-gold mb-3">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-display font-bold text-white text-sm">Agilidade na Prensagem</h3>
+              <p class="text-xs text-zinc-400 mt-1">Montagem sob medida com maquinário de precisão para sua máquina voltar a operar rápido.</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-wm-card border border-wm-border gold-border-subtle transition-all">
+              <div class="w-10 h-10 rounded-xl bg-wm-gold/15 flex items-center justify-center text-wm-gold mb-3">
+                <i data-lucide="book-open-check" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-display font-bold text-white text-sm">Atendimento Didático</h3>
+              <p class="text-xs text-zinc-400 mt-1">Explicamos cada especificação (rosca, bitola e pressão) de forma simples e transparente.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SEÇÃO 3: GUIA DIDÁTICO RÁPIDO PARA O CLIENTE                          -->
+  <!-- ===================================================================== -->
+  <section id="guia-didatico" class="py-16 sm:py-20 bg-wm-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-wm-gold">Compra Sem Erro</span>
+        <h2 class="font-display font-bold text-2xl sm:text-4xl text-white mt-2">
+          Como Identificar Sua Mangueira ou Conexão em 3 Passos
+        </h2>
+        <p class="text-sm sm:text-base text-zinc-400 mt-3">
+          Não sabe o código técnico da peça? Veja como é simples encontrar o que você precisa antes de falar com nosso vendedor.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Passo 1 -->
+        <div class="relative p-6 rounded-3xl bg-wm-card border border-wm-border gold-border-subtle">
+          <div class="w-11 h-11 rounded-2xl gold-gradient-bg text-wm-dark font-display font-black text-lg flex items-center justify-center mb-4">
+            1
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Verifique o Fluido e a Pressão</h3>
+          <p class="text-sm text-zinc-400 mt-2 leading-relaxed">
+            Observe o que passa dentro da mangueira (óleo hidráulico, água, ar comprimido, combustível) e a pressão de trabalho (ex: <strong>1 trama R1AT</strong> para média pressão ou <strong>2 tramas R2AT / 4 espirais</strong> para alta pressão).
+          </p>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="relative p-6 rounded-3xl bg-wm-card border border-wm-border gold-border-subtle">
+          <div class="w-11 h-11 rounded-2xl gold-gradient-bg text-wm-dark font-display font-black text-lg flex items-center justify-center mb-4">
+            2
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Meça o Diâmetro Interno (Bitola)</h3>
+          <p class="text-sm text-zinc-400 mt-2 leading-relaxed">
+            A medida interna da mangueira geralmente vem gravada na capa externa em polegadas (ex: <strong>1/4", 3/8", 1/2", 3/4", 1"</strong>). Se a gravação apagou, basta medir o furo interno com uma régua ou paquímetro.
+          </p>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="relative p-6 rounded-3xl bg-wm-card border border-wm-border gold-border-subtle">
+          <div class="w-11 h-11 rounded-2xl gold-gradient-bg text-wm-dark font-display font-black text-lg flex items-center justify-center mb-4">
+            3
+          </div>
+          <h3 class="font-display font-bold text-lg text-white">Identifique as Pontas (Terminais)</h3>
+          <p class="text-sm text-zinc-400 mt-2 leading-relaxed">
+            Veja se as pontas são <strong>Macho ou Fêmea</strong>, retas ou curvas (45° / 90°) e o padrão de vedação (<strong>JIC, BSP, NPT, ORFS ou Métrica</strong>). Se preferir, tire uma foto e envie direto no nosso WhatsApp!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SEÇÃO 4: CATÁLOGO DE PRODUTOS INTERATIVO                              -->
+  <!-- ===================================================================== -->
+  <section id="catalogo" class="py-16 sm:py-24 bg-wm-surface border-t border-wm-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho do Catálogo -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-wm-gold">Linha Completa</span>
+          <h2 class="font-display font-bold text-2xl sm:text-4xl text-white mt-1">
+            Catálogo Oficial WM
+          </h2>
+          <p class="text-sm text-zinc-400 mt-2">
+            Pesquise por código, nome ou categoria e clique em <strong>Cotar no WhatsApp</strong> para atendimento imediato.
+          </p>
+        </div>
+
+        <!-- Contador de itens -->
+        <div class="text-xs text-zinc-400 bg-wm-card px-4 py-2.5 rounded-xl border border-wm-border self-start md:self-auto">
+          Exibindo <span id="catalog-count" class="text-wm-goldLight font-bold">0</span> produtos
+        </div>
+      </div>
+
+      <!-- Barra de Busca e Filtros -->
+      <div class="bg-wm-card p-4 sm:p-5 rounded-2xl border border-wm-border mb-8 space-y-4">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <!-- Campo de Busca -->
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="text" 
+              id="search-input" 
+              oninput="filterCatalog()"
+              placeholder="Buscar por código (ex: WM-1001), nome ou aplicação..." 
+              class="w-full pl-10 pr-4 py-3 rounded-xl bg-wm-dark border border-wm-border text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-wm-gold transition-colors"
+            />
+          </div>
+
+          <!-- Filtro de Categorias -->
+          <div id="category-filters" class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
+            <!-- Botões gerados dinamicamente via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de Produtos -->
+      <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Cards renderizados via JS -->
+      </div>
+
+      <!-- Estado Vazio (Caso busca não encontre nada) -->
+      <div id="catalog-empty" class="hidden text-center py-16 bg-wm-card rounded-3xl border border-wm-border">
+        <i data-lucide="package-search" class="w-12 h-12 text-wm-gold mx-auto mb-3 opacity-80"></i>
+        <h3 class="font-display font-bold text-lg text-white">Nenhum produto encontrado</h3>
+        <p class="text-sm text-zinc-400 mt-1 max-w-md mx-auto">
+          Não encontrou o código que procurava? Fale com nosso vendedor no WhatsApp, temos milhares de itens em estoque!
+        </p>
+        <div class="mt-5 flex justify-center gap-3">
+          <button onclick="resetFilters()" class="px-4 py-2.5 rounded-xl bg-wm-dark border border-wm-border text-xs font-semibold text-zinc-200 hover:border-wm-gold">
+            Limpar Filtros
+          </button>
+          <a id="empty-whatsapp-btn" href="https://wa.me/5511945653485" target="_blank" rel="noopener noreferrer"
+             class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-semibold">
+            Consultar Vendedor
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SEÇÃO 5: LOCALIZAÇÃO, WHATSAPP E INSTAGRAM                            -->
+  <!-- ===================================================================== -->
+  <section id="contato" class="py-16 sm:py-20 bg-wm-dark border-t border-wm-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-wm-gold">Canais Oficiais</span>
+        <h2 class="font-display font-bold text-2xl sm:text-4xl text-white mt-2">
+          Fale Conosco ou Visite Nossa Loja
+        </h2>
+        <p class="text-sm text-zinc-400 mt-2">
+          Atendimento rápido para orçamentos de balcão, empresas, oficinas e indústrias.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card WhatsApp -->
+        <a id="contact-whatsapp-link" href="https://wa.me/5511945653485?text=Olá!%20Gostaria%20de%20fazer%20uma%20cotação%20com%20a%20WM%20Mangueiras%20e%20Conexões." target="_blank" rel="noopener noreferrer"
+           class="group p-6 rounded-3xl bg-wm-card border border-wm-border hover:border-emerald-500/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="message-circle" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Vendedor WhatsApp</h3>
+            <p class="text-sm text-zinc-400 mt-1.5">
+              Envie fotos da sua peça, peça cotações rápidas e tire dúvidas direto com nossa equipe comercial.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-wm-border flex items-center justify-between text-emerald-400 font-bold text-sm">
+            <span id="contact-whatsapp-display">(11) 94565-3485</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </div>
+        </a>
+
+        <!-- Card Localização Google Maps -->
+        <a id="contact-maps-link" href="https://share.google/Z2BlelAhpwK2D2NyJ" target="_blank" rel="noopener noreferrer"
+           class="group p-6 rounded-3xl bg-wm-card border border-wm-border gold-border-subtle transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-wm-gold/15 text-wm-gold flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="map-pin" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Nossa Localização</h3>
+            <p class="text-sm text-zinc-400 mt-1.5">
+              Venha nos visitar! Trace sua rota pelo Google Maps e conte com nosso balcão técnico especializado.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-wm-border flex items-center justify-between text-wm-goldLight font-bold text-sm">
+            <span>Abrir no Google Maps</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </div>
+        </a>
+
+        <!-- Card Instagram -->
+        <a id="contact-insta-link" href="https://instagram.com/wm.conexoes" target="_blank" rel="noopener noreferrer"
+           class="group p-6 rounded-3xl bg-wm-card border border-wm-border hover:border-pink-500/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-pink-500/15 text-pink-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="instagram" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Nosso Instagram</h3>
+            <p class="text-sm text-zinc-400 mt-1.5">
+              Acompanhe novidades, montagens especiais, dicas técnicas e bastidores do dia a dia da WM.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-wm-border flex items-center justify-between text-pink-400 font-bold text-sm">
+            <span id="contact-insta-display">@wm.conexoes</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- RODAPÉ (FOOTER) COM DESTAQUE PARA O BRASÃO GRUPO WM                   -->
+  <!-- ===================================================================== -->
+  <footer class="bg-wm-dark border-t border-wm-gold/30 pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-10 border-b border-wm-border/80">
+        
+        <!-- Coluna 1: Brasão Grupo WM em Destaque & Identidade Institucional -->
+        <div class="lg:col-span-5 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5">
+          <div class="p-3.5 rounded-2xl bg-gradient-to-b from-wm-card to-wm-surface border border-wm-gold/40 shadow-gold-sm shrink-0">
+            <img 
+              src="WhatsApp_Image_2026-07-24_at_08.23.05-removebg-preview (1).png" 
+              alt="Brasão Grupo WM" 
+              class="h-24 w-auto object-contain drop-shadow-[0_6px_14px_rgba(212,175,55,0.28)]"
+            />
+          </div>
+          <div class="space-y-2.5">
+            <div class="inline-flex items-center gap-2">
+              <img 
+                src="Captura_de_tela_2026-03-15_110853-removebg-preview.png" 
+                alt="WM Mangueiras e Conexões" 
+                class="h-9 w-auto object-contain"
+              />
+            </div>
+            <h4 class="font-display font-bold text-sm uppercase tracking-wider gold-gradient-text">
+              Grupo WM • Excelência Industrial
+            </h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Especialistas em mangueiras hidráulicas de alta pressão, conexões prensadas, adaptadores, engates rápidos e soluções industriais com atendimento técnico ágil.
+            </p>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação Rápida -->
+        <div class="lg:col-span-3 text-center sm:text-left space-y-3">
+          <h4 class="font-display font-bold text-xs uppercase tracking-widest text-wm-goldLight">
+            Navegação Rápida
+          </h4>
+          <ul class="space-y-2 text-xs text-zinc-400">
+            <li><a href="#inicio" class="hover:text-wm-goldLight transition-colors">Início & Boas-vindas</a></li>
+            <li><a href="#sobre" class="hover:text-wm-goldLight transition-colors">Sobre o Grupo WM</a></li>
+            <li><a href="#guia-didatico" class="hover:text-wm-goldLight transition-colors">Como Escolher (Guia Didático)</a></li>
+            <li><a href="#catalogo" class="hover:text-wm-goldLight transition-colors">Catálogo de Produtos</a></li>
+            <li><a href="#contato" class="hover:text-wm-goldLight transition-colors">Localização & Canais</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Canais Oficiais & Acesso Admin -->
+        <div class="lg:col-span-4 text-center sm:text-left space-y-3">
+          <h4 class="font-display font-bold text-xs uppercase tracking-widest text-wm-goldLight">
+            Atendimento & Canais Oficiais
+          </h4>
+          <div class="space-y-2.5 text-xs text-zinc-300">
+            <a id="footer-whatsapp-link" href="https://wa.me/5511945653485?text=Olá!%20Vim%20pelo%20site%20da%20WM%20Mangueiras%20e%20Conexões." target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center sm:justify-start gap-2 hover:text-emerald-400 transition-colors">
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span>WhatsApp Vendas: <strong id="footer-whatsapp-display">(11) 94565-3485</strong></span>
+            </a>
+
+            <a id="footer-maps-link" href="https://share.google/Z2BlelAhpwK2D2NyJ" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center sm:justify-start gap-2 hover:text-wm-goldLight transition-colors">
+              <i data-lucide="map-pin" class="w-4 h-4 text-wm-gold shrink-0"></i>
+              <span>Ver Nossa Localização no Google Maps</span>
+            </a>
+
+            <a id="footer-insta-link" href="https://instagram.com/wm.conexoes" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center sm:justify-start gap-2 hover:text-pink-400 transition-colors">
+              <i data-lucide="instagram" class="w-4 h-4 text-pink-400 shrink-0"></i>
+              <span>Instagram: <strong id="footer-insta-display">@wm.conexoes</strong></span>
+            </a>
+          </div>
+
+          <div class="pt-2 flex justify-center sm:justify-start">
+            <button onclick="openAdminModal()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-wm-surface hover:bg-wm-card border border-wm-border hover:border-wm-gold/50 text-xs text-zinc-300 hover:text-wm-goldLight transition-all">
+              <i data-lucide="lock" class="w-3.5 h-3.5 text-wm-gold"></i>
+              Área do Administrador
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra Inferior de Direitos Autorais -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <p class="text-center sm:text-left">
+          © <span id="current-year"></span> <strong>WM Mangueiras e Conexões</strong> — Uma empresa do <strong>Grupo WM</strong>. Todos os direitos reservados.
+        </p>
+        <p class="text-[11px] text-zinc-500">
+          Qualidade, Pressão e Confiança em Cada Conexão.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- BOTÃO FLUTUANTE WHATSAPP (CANTO INFERIOR ESQUERDO)                    -->
+  <!-- ===================================================================== -->
+  <a id="floating-whatsapp" href="https://wa.me/5511945653485?text=Olá!%20Vim%20pelo%20site%20da%20WM%20Mangueiras%20e%20Conexões." target="_blank" rel="noopener noreferrer"
+     title="Falar com Vendedor no WhatsApp"
+     class="fixed bottom-5 left-5 z-40 flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-3.5 rounded-full shadow-2xl shadow-emerald-950/80 transition-transform hover:scale-105">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <span class="hidden sm:inline text-sm font-bold">WhatsApp</span>
+  </a>
+
+  <!-- ===================================================================== -->
+  <!-- WIDGET DE SUPORTE IA (ASSISTENTE VIRTUAL WM COM MASCOTE)              -->
+  <!-- ===================================================================== -->
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col items-end">
+    
+    <!-- Janela do Chat IA -->
+    <div id="ai-chat-window" class="hidden mb-3 w-[calc(100vw-2.5rem)] sm:w-96 bg-wm-surface border border-wm-gold/50 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[78vh]">
+      <!-- Header do Chat -->
+      <div class="p-4 bg-gradient-to-r from-wm-card via-wm-surface to-wm-card border-b border-wm-border flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-wm-dark border border-wm-gold p-1 overflow-hidden shrink-0">
+            <img src="Design_sem_nome__2_-removebg-preview.png" alt="Mascote WM" class="w-full h-full object-contain scale-125 translate-y-1" />
+          </div>
+          <div>
+            <h4 class="font-display font-bold text-sm text-white flex items-center gap-1.5">
+              Assistente Técnico WM
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </h4>
+            <p class="text-[11px] text-wm-goldLight">IA Especialista em Mangueiras & Conexões</p>
+          </div>
+        </div>
+        <button onclick="toggleAIChat()" class="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-wm-card">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Mensagens -->
+      <div id="ai-messages" class="p-4 space-y-3 overflow-y-auto flex-1 text-sm bg-wm-dark/60 min-h-[260px] max-h-[360px]">
+        <div class="flex items-start gap-2.5">
+          <img src="Design_sem_nome__2_-removebg-preview.png" alt="WM" class="w-7 h-7 rounded-full bg-wm-card border border-wm-gold/40 object-contain shrink-0 mt-0.5" />
+          <div class="bg-wm-card border border-wm-border rounded-2xl rounded-tl-none p-3 text-zinc-200 text-xs leading-relaxed">
+            Olá! Eu sou o <strong>Assistente Virtual da WM Mangueiras e Conexões</strong>! 👋<br><br>
+            Posso te ajudar a:
+            <ul class="list-disc pl-4 mt-1 space-y-0.5 text-zinc-300">
+              <li>Identificar tipos de rosca (BSP, NPT, JIC, ORFS)</li>
+              <li>Escolher a mangueira ideal para sua pressão</li>
+              <li>Consultar itens do nosso catálogo</li>
+              <li>Passar localização e contato do vendedor</li>
+            </ul>
+            Como posso te ajudar hoje?
+          </div>
+        </div>
+      </div>
+
+      <!-- Sugestões Rápidas -->
+      <div class="px-3 py-2 bg-wm-surface border-t border-wm-border/60 flex gap-1.5 overflow-x-auto">
+        <button onclick="sendQuickPrompt('Qual a diferença entre rosca BSP e NPT?')" class="shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-wm-card hover:border-wm-gold border border-wm-border text-zinc-300">
+          Rosca BSP x NPT?
+        </button>
+        <button onclick="sendQuickPrompt('Quais mangueiras de alta pressão vocês têm?')" class="shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-wm-card hover:border-wm-gold border border-wm-border text-zinc-300">
+          Mangueiras alta pressão
+        </button>
+        <button onclick="sendQuickPrompt('Onde fica a loja e qual o WhatsApp?')" class="shrink-0 text-[11px] px-2.5 py-1 rounded-full bg-wm-card hover:border-wm-gold border border-wm-border text-zinc-300">
+          Endereço e WhatsApp
+        </button>
+      </div>
+
+      <!-- Input do Chat -->
+      <form onsubmit="handleAIChatSubmit(event)" class="p-3 bg-wm-card border-t border-wm-border flex items-center gap-2">
+        <input 
+          type="text" 
+          id="ai-input" 
+          placeholder="Digite sua dúvida técnica..." 
+          class="flex-1 bg-wm-dark border border-wm-border rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-wm-gold"
+          required
+        />
+        <button type="submit" id="ai-send-btn" class="p-2.5 rounded-xl gold-gradient-bg text-wm-dark font-bold hover:opacity-95 transition-opacity">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- Botão Flutuante de Abertura do Chat IA -->
+    <button onclick="toggleAIChat()" class="flex items-center gap-3 pl-2 pr-4 py-2 rounded-full bg-wm-card hover:bg-wm-surface border-2 border-wm-gold shadow-gold-glow transition-transform hover:scale-105 group">
+      <div class="w-10 h-10 rounded-full bg-wm-dark overflow-hidden border border-wm-gold/60 flex items-center justify-center">
+        <img src="Design_sem_nome__2_-removebg-preview.png" alt="Assistente WM" class="w-full h-full object-contain scale-125 translate-y-1" />
+      </div>
+      <div class="text-left">
+        <p class="text-xs font-display font-bold text-wm-goldLight leading-tight">Suporte IA WM</p>
+        <p class="text-[10px] text-zinc-300">Tire dúvidas técnicas</p>
+      </div>
+    </button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL: ÁREA DO ADMINISTRADOR (LOGIN + PAINEL COMPLETO DE EDIÇÃO)      -->
+  <!-- ===================================================================== -->
+  <div id="admin-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-wm-surface border border-wm-gold/40 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
+      
+      <!-- Header Modal Admin -->
+      <div class="px-6 py-4 bg-wm-card border-b border-wm-border flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="shield" class="w-5 h-5 text-wm-gold"></i>
+          <h3 class="font-display font-bold text-white text-base sm:text-lg">Painel Administrativo — WM Mangueiras</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="admin-logout-btn" onclick="logoutAdmin()" class="hidden px-3 py-1.5 rounded-lg bg-red-500/15 text-red-400 hover:bg-red-500/25 text-xs font-semibold">
+            Sair
+          </button>
+          <button onclick="closeAdminModal()" class="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-wm-dark">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Conteúdo Modal Admin -->
+      <div class="p-6 overflow-y-auto flex-1">
+        
+        <!-- TELA 1: LOGIN DO ADMINISTRADOR -->
+        <div id="admin-login-view" class="max-w-md mx-auto py-6 space-y-6">
+          <div class="text-center">
+            <img src="WhatsApp_Image_2026-07-24_at_08.23.05-removebg-preview (1).png" alt="Grupo WM" class="h-20 w-auto mx-auto mb-3" />
+            <h4 class="font-display font-bold text-xl text-white">Acesso Restrito ao Administrador</h4>
+            <p class="text-xs text-zinc-400 mt-1">Entre com suas credenciais para gerenciar o catálogo e editar os textos do site.</p>
+          </div>
+
+          <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Usuário</label>
+              <input type="text" id="login-user" required placeholder="Digite seu usuário"
+                     class="w-full px-4 py-3 rounded-xl bg-wm-dark border border-wm-border text-white text-sm focus:outline-none focus:border-wm-gold" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Senha</label>
+              <input type="password" id="login-pass" required placeholder="••••••••"
+                     class="w-full px-4 py-3 rounded-xl bg-wm-dark border border-wm-border text-white text-sm focus:outline-none focus:border-wm-gold" />
+            </div>
+            <button type="submit" class="w-full py-3.5 rounded-xl gold-gradient-bg text-wm-dark font-display font-bold text-sm shadow-gold-sm">
+              Entrar no Painel
+            </button>
+          </form>
+
+          <!-- Dica discreta das credenciais padrão -->
+          <div class="p-3.5 rounded-xl bg-wm-dark/80 border border-wm-border text-center">
+            <p class="text-[11px] text-zinc-400">
+              Credenciais padrão de acesso: Usuário <code class="text-wm-goldLight font-mono">admin</code> • Senha <code class="text-wm-goldLight font-mono">wm1234</code>
+            </p>
+          </div>
+        </div>
+
+        <!-- TELA 2: PAINEL DE GESTÃO (APÓS LOGIN) -->
+        <div id="admin-dashboard-view" class="hidden space-y-6">
+          
+          <!-- Abas de Navegação do Painel -->
+          <div class="flex flex-wrap gap-2 border-b border-wm-border pb-3">
+            <button onclick="switchAdminTab('products')" id="tab-btn-products" class="px-4 py-2 rounded-xl text-xs font-bold bg-wm-gold text-wm-dark">
+              Gerenciar Catálogo de Produtos
+            </button>
+            <button onclick="switchAdminTab('site')" id="tab-btn-site" class="px-4 py-2 rounded-xl text-xs font-bold bg-wm-card text-zinc-300 hover:text-white">
+              Editar Textos & Contatos do Site
+            </button>
+            <button onclick="switchAdminTab('security')" id="tab-btn-security" class="px-4 py-2 rounded-xl text-xs font-bold bg-wm-card text-zinc-300 hover:text-white">
+              Alterar Senha Admin
+            </button>
+          </div>
+
+          <!-- ABA 1: GERENCIAR CATÁLOGO (ADICIONAR / EDITAR / EXCLUIR) -->
+          <div id="admin-tab-products" class="space-y-6">
+            
+            <!-- Formulário de Produto -->
+            <form id="product-form" onsubmit="handleSaveProduct(event)" class="p-5 rounded-2xl bg-wm-dark border border-wm-border space-y-4">
+              <div class="flex items-center justify-between">
+                <h4 id="product-form-title" class="font-display font-bold text-sm text-wm-goldLight flex items-center gap-2">
+                  <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                  Cadastrar Novo Produto no Catálogo
+                </h4>
+                <button type="button" id="cancel-edit-product-btn" onclick="resetProductForm()" class="hidden text-xs text-zinc-400 hover:text-white underline">
+                  Cancelar Edição
+                </button>
+              </div>
+
+              <input type="hidden" id="prod-id" />
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label class="block text-xs text-zinc-400 mb-1">Código / SKU *</label>
+                  <input type="text" id="prod-code" required placeholder="Ex: WM-1090"
+                         class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-xs text-zinc-400 mb-1">Nome do Produto *</label>
+                  <input type="text" id="prod-name" required placeholder="Ex: Mangueira Hidráulica R2AT 1/2'' 2 Tramas de Aço"
+                         class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs text-zinc-400 mb-1">Categoria *</label>
+                  <select id="prod-category" required
+                          class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold">
+                    <option value="Mangueiras Hidráulicas">Mangueiras Hidráulicas</option>
+                    <option value="Conexões e Terminais">Conexões e Terminais</option>
+                    <option value="Adaptadores">Adaptadores</option>
+                    <option value="Engates Rápidos">Engates Rápidos</option>
+                    <option value="Mangueiras Industriais">Mangueiras Industriais</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs text-zinc-400 mb-1">Foto do Produto (Upload do Dispositivo ou URL)</label>
+                  <div class="flex items-center gap-2">
+                    <input type="file" id="prod-image-file" accept="image/*" onchange="handleImageUpload(event)"
+                           class="w-full text-xs text-zinc-400 file:mr-2 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-wm-gold file:text-wm-dark hover:file:bg-wm-goldLight cursor-pointer" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Ou cole a URL da imagem (opcional)</label>
+                <input type="text" id="prod-image-url" placeholder="https://..."
+                       class="w-full px-3.5 py-2 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+              </div>
+
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Especificação Técnica / Descrição Didática *</label>
+                <textarea id="prod-desc" rows="2" required placeholder="Ex: Pressão de trabalho: 4.000 PSI (275 Bar). Indicada para sistemas hidráulicos de alta pressão, tratores e máquinas industriais."
+                          class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold"></textarea>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="px-6 py-2.5 rounded-xl gold-gradient-bg text-wm-dark font-display font-bold text-xs shadow-gold-sm">
+                  Salvar Produto no Catálogo
+                </button>
+              </div>
+            </form>
+
+            <!-- Lista de Produtos Cadastrados -->
+            <div>
+              <h4 class="font-display font-bold text-sm text-white mb-3">Produtos Ativos no Site</h4>
+              <div id="admin-products-list" class="space-y-2.5 max-h-72 overflow-y-auto pr-1">
+                <!-- Renderizado via JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- ABA 2: EDITAR TEXTOS & CONTATOS DO SITE -->
+          <div id="admin-tab-site" class="hidden space-y-4">
+            <form onsubmit="handleSaveSiteSettings(event)" class="p-5 rounded-2xl bg-wm-dark border border-wm-border space-y-4">
+              <h4 class="font-display font-bold text-sm text-wm-goldLight">Personalizar Conteúdo Institucional e Links</h4>
+
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Título Principal de Boas-vindas (Hero)</label>
+                <input type="text" id="edit-hero-title" required
+                       class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+              </div>
+
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Subtítulo de Boas-vindas</label>
+                <textarea id="edit-hero-subtitle" rows="2" required
+                          class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold"></textarea>
+              </div>
+
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Título da Seção "Sobre Nós"</label>
+                <input type="text" id="edit-about-title" required
+                       class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+              </div>
+
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Texto de Apresentação da Loja ("Sobre Nós")</label>
+                <textarea id="edit-about-text" rows="3" required
+                          class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold"></textarea>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label class="block text-xs text-zinc-400 mb-1">WhatsApp (somente números com DDD)</label>
+                  <input type="text" id="edit-whatsapp" required placeholder="5511945653485"
+                         class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+                </div>
+                <div>
+                  <label class="block text-xs text-zinc-400 mb-1">Link Google Maps</label>
+                  <input type="url" id="edit-maps" required
+                         class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+                </div>
+                <div>
+                  <label class="block text-xs text-zinc-400 mb-1">Instagram (@usuario)</label>
+                  <input type="text" id="edit-instagram" required placeholder="@wm.conexoes"
+                         class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center pt-2">
+                <button type="button" onclick="resetSiteToDefault()" class="text-xs text-zinc-400 hover:text-red-400 underline">
+                  Restaurar Padrão Original
+                </button>
+                <button type="submit" class="px-6 py-2.5 rounded-xl gold-gradient-bg text-wm-dark font-display font-bold text-xs shadow-gold-sm">
+                  Salvar Alterações no Site
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- ABA 3: ALTERAR SENHA DO ADMINISTRADOR -->
+          <div id="admin-tab-security" class="hidden">
+            <form onsubmit="handleChangePassword(event)" class="max-w-md p-5 rounded-2xl bg-wm-dark border border-wm-border space-y-4">
+              <h4 class="font-display font-bold text-sm text-wm-goldLight">Alterar Senha de Acesso Administrativo</h4>
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Nova Senha (mínimo 4 caracteres)</label>
+                <input type="password" id="new-admin-pass" minlength="4" required placeholder="Digite a nova senha"
+                       class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+              </div>
+              <div>
+                <label class="block text-xs text-zinc-400 mb-1">Confirmar Nova Senha</label>
+                <input type="password" id="confirm-admin-pass" minlength="4" required placeholder="Repita a nova senha"
+                       class="w-full px-3.5 py-2.5 rounded-xl bg-wm-surface border border-wm-border text-white text-xs focus:outline-none focus:border-wm-gold" />
+              </div>
+              <button type="submit" class="px-5 py-2.5 rounded-xl gold-gradient-bg text-wm-dark font-display font-bold text-xs">
+                Atualizar Senha
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT: LÓGICA DO CATÁLOGO, ADMIN, LOCALSTORAGE E SUPORTE IA      -->
+  <!-- ===================================================================== -->
+  <script>
+    // Inicializa ícones Lucide
+    lucide.createIcons();
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // =========================================================================
+    // 1. DADOS INICIAIS E GERENCIAMENTO DE ESTADO (LOCALSTORAGE)
+    // =========================================================================
+    const DEFAULT_SITE_SETTINGS = {
+      heroTitle: 'Força, Precisão e Conexões que <span class="gold-gradient-text">Movem a Sua Operação.</span>',
+      heroSubtitle: 'Bem-vindo à <strong>WM Mangueiras e Conexões</strong>! Aqui você encontra mangueiras hidráulicas de alta pressão, terminais prensados, adaptadores, engates rápidos e linhas industriais com atendimento técnico descomplicado e entrega ágil.',
+      aboutTitle: 'Especialistas em Conectar Resultados com Segurança e Agilidade',
+      aboutText: 'A <strong>WM Mangueiras e Conexões</strong> nasceu com o propósito de eliminar paradas inesperadas na sua operação. Integrante do <strong>Grupo WM</strong>, oferecemos uma linha completa de mangueiras hidráulicas de baixa, média, alta e super alta pressão, mangueiras industriais (ar, água, óleo, sucção e descarga), além de conexões prensadas, adaptadores roscados e engates rápidos. Nosso atendimento técnico ajuda você a identificar exatamente a peça certa, mesmo que você não saiba o código técnico!',
+      whatsapp: '5511945653485',
+      mapsUrl: 'https://share.google/Z2BlelAhpwK2D2NyJ',
+      instagram: '@wm.conexoes'
+    };
+
+    // Ilustrações SVG em Data URI para produtos padrão (nítidas, sem depender de links externos quebrados)
+    function createProductSVG(label, accentColor = '#D4AF37', type = 'hose') {
+      let graphic = '';
+      if (type === 'hose') {
+        graphic = `
+          <path d="M55,130 C55,55 185,55 185,130" stroke="#27272A" stroke-width="24" fill="none" stroke-linecap="round"/>
+          <path d="M55,130 C55,55 185,55 185,130" stroke="${accentColor}" stroke-width="4" stroke-dasharray="8 6" fill="none"/>
+          <rect x="40" y="122" width="30" height="24" rx="4" fill="${accentColor}"/>
+          <rect x="170" y="122" width="30" height="24" rx="4" fill="${accentColor}"/>
+        `;
+      } else if (type === 'fitting') {
+        graphic = `
+          <rect x="65" y="82" width="110" height="26" rx="4" fill="#3F3F46"/>
+          <polygon points="105,72 135,72 142,95 135,118 105,118 98,95" fill="${accentColor}"/>
+          <rect x="52" y="85" width="16" height="20" rx="2" fill="${accentColor}"/>
+          <rect x="172" y="85" width="16" height="20" rx="2" fill="${accentColor}"/>
+        `;
+      } else {
+        graphic = `
+          <circle cx="120" cy="95" r="42" stroke="${accentColor}" stroke-width="10" fill="#1F1F23"/>
+          <circle cx="120" cy="95" r="20" stroke="#71717A" stroke-width="5" fill="none"/>
+        `;
+      }
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="260" viewBox="0 0 240 180">
+        <rect width="240" height="180" fill="#141418"/>
+        <circle cx="120" cy="90" r="70" fill="${accentColor}" fill-opacity="0.06"/>
+        ${graphic}
+        <text x="120" y="162" font-family="sans-serif" font-size="11" font-weight="bold" fill="#A1A1AA" text-anchor="middle">${label}</text>
+      </svg>`;
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+
+    const DEFAULT_PRODUCTS = [
+      {
+        id: 'p1',
+        code: 'WM-1001',
+        name: 'Mangueira Hidráulica SAE 100 R2AT (2 Tramas de Aço)',
+        category: 'Mangueiras Hidráulicas',
+        description: 'Alta resistência para óleo hidráulico sob alta pressão (até 4.000 PSI). Ideal para retroescavadeiras, prensas e tratores.',
+        image: createProductSVG('SAE 100 R2AT • ALTA PRESSÃO', '#D4AF37', 'hose')
+      },
+      {
+        id: 'p2',
+        code: 'WM-1002',
+        name: 'Mangueira Super Alta Pressão 4SH (4 Espirais de Aço)',
+        category: 'Mangueiras Hidráulicas',
+        description: 'Projetada para picos extremos de pressão (até 6.000 PSI) em equipamentos pesados de mineração e construção.',
+        image: createProductSVG('4SH • 4 ESPIRAIS DE AÇO', '#F4D36B', 'hose')
+      },
+      {
+        id: 'p3',
+        code: 'WM-2010',
+        name: 'Terminal Prensado Fêmea Giratória JIC 37°',
+        category: 'Conexões e Terminais',
+        description: 'Vedação metal-metal de alta precisão com cone de 37 graus. Evita vazamentos por vibração em linhas hidráulicas.',
+        image: createProductSVG('TERMINAL JIC 37° GIRATÓRIO', '#D4AF37', 'fitting')
+      },
+      {
+        id: 'p4',
+        code: 'WM-2015',
+        name: 'Terminal Prensado Macho Fixo BSP / NPT',
+        category: 'Conexões e Terminais',
+        description: 'Aço carbono bicromatizado de alta durabilidade. Disponível em bitolas de 1/4" até 2" para prensagem imediata.',
+        image: createProductSVG('TERMINAL MACHO BSP / NPT', '#E5C158', 'fitting')
+      },
+      {
+        id: 'p5',
+        code: 'WM-3004',
+        name: 'Adaptador Niple Duplo Macho JIC x BSP com O-Ring',
+        category: 'Adaptadores',
+        description: 'Faz a transição segura entre blocos de comando BSP e mangueiras com terminais JIC. Inclui anel de vedação.',
+        image: createProductSVG('ADAPTADOR JIC x BSP', '#D4AF37', 'fitting')
+      },
+      {
+        id: 'p6',
+        code: 'WM-4008',
+        name: 'Engate Rápido Hidráulico Face Plana (ISO 16028)',
+        category: 'Engates Rápidos',
+        description: 'Conexão rápida sem perda de fluido e sem entrada de ar no circuito. Muito usado em implementos agrícolas e Bobcat.',
+        image: createProductSVG('ENGATE RÁPIDO FACE PLANA', '#F4D36B', 'fitting')
+      },
+      {
+        id: 'p7',
+        code: 'WM-5012',
+        name: 'Mangueira Industrial Ar e Água 300 PSI',
+        category: 'Mangueiras Industriais',
+        description: 'Tubo interno resistente e cobertura antiabrasiva para compressores pneumáticos, lavagem industrial e oficinas.',
+        image: createProductSVG('INDUSTRIAL AR / ÁGUA 300 PSI', '#D4AF37', 'coil')
+      },
+      {
+        id: 'p8',
+        code: 'WM-5020',
+        name: 'Mola Espiral Protetora Anti-Abrasão em PEAD',
+        category: 'Mangueiras Industriais',
+        description: 'Aumenta a vida útil das mangueiras protegendo contra atrito, esmagamento e raios UV. Fácil instalação.',
+        image: createProductSVG('ESPIRAL PROTETORA PEAD', '#E5C158', 'coil')
+      }
+    ];
+
+    let siteSettings = JSON.parse(localStorage.getItem('wm_site_settings')) || { ...DEFAULT_SITE_SETTINGS };
+    let products = JSON.parse(localStorage.getItem('wm_products')) || [...DEFAULT_PRODUCTS];
+    let adminPassword = localStorage.getItem('wm_admin_pass') || 'wm1234';
+    let isAdminLoggedIn = false;
+    let selectedCategory = 'Todas';
+    let uploadedBase64Image = '';
+
+    // =========================================================================
+    // 2. RENDERIZAÇÃO DO SITE E CATÁLOGO
+    // =========================================================================
+    function formatPhoneDisplay(raw) {
+      const digits = raw.replace(/\D/g, '');
+      if (digits.length === 13 && digits.startsWith('55')) {
+        return `(${digits.slice(2, 4)}) ${digits.slice(4, 9)}-${digits.slice(9)}`;
+      }
+      if (digits.length === 11) {
+        return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+      }
+      return raw;
+    }
+
+    function applySiteSettingsToDOM() {
+      document.getElementById('hero-title').innerHTML = siteSettings.heroTitle;
+      document.getElementById('hero-subtitle').innerHTML = siteSettings.heroSubtitle;
+      document.getElementById('about-title').textContent = siteSettings.aboutTitle;
+      document.getElementById('about-text').innerHTML = siteSettings.aboutText;
+
+      const cleanWhats = siteSettings.whatsapp.replace(/\D/g, '');
+      const baseWhatsUrl = `https://wa.me/${cleanWhats}`;
+
+      document.getElementById('nav-whatsapp-btn').href = `${baseWhatsUrl}?text=${encodeURIComponent('Olá! Vim pelo site da WM Mangueiras e Conexões e gostaria de um atendimento.')}`;
+      document.getElementById('hero-whatsapp-btn').href = `${baseWhatsUrl}?text=${encodeURIComponent('Olá! Gostaria de falar com um vendedor da WM Mangueiras e Conexões.')}`;
+      document.getElementById('floating-whatsapp').href = `${baseWhatsUrl}?text=${encodeURIComponent('Olá! Vim pelo site da WM Mangueiras e Conexões.')}`;
+      document.getElementById('empty-whatsapp-btn').href = `${baseWhatsUrl}?text=${encodeURIComponent('Olá! Não encontrei um item específico no catálogo e gostaria de ajuda.')}`;
+
+      document.getElementById('contact-whatsapp-display').textContent = formatPhoneDisplay(cleanWhats);
+      document.getElementById('contact-whatsapp-link').href = `${baseWhatsUrl}?text=${encodeURIComponent('Olá! Gostaria de fazer uma cotação com a WM Mangueiras e Conexões.')}`;
+      document.getElementById('footer-whatsapp-display').textContent = formatPhoneDisplay(cleanWhats);
+      document.getElementById('footer-whatsapp-link').href = `${baseWhatsUrl}?text=${encodeURIComponent('Olá! Vim pelo site da WM Mangueiras e Conexões.')}`;
+
+      document.getElementById('contact-maps-link').href = siteSettings.mapsUrl;
+      document.getElementById('footer-maps-link').href = siteSettings.mapsUrl;
+
+      const instaHandle = siteSettings.instagram.startsWith('@') ? siteSettings.instagram : `@${siteSettings.instagram}`;
+      const instaUser = instaHandle.replace('@', '');
+      document.getElementById('contact-insta-display').textContent = instaHandle;
+      document.getElementById('contact-insta-link').href = `https://instagram.com/${instaUser}`;
+      document.getElementById('footer-insta-display').textContent = instaHandle;
+      document.getElementById('footer-insta-link').href = `https://instagram.com/${instaUser}`;
+    }
+
+    function renderCategoryFilters() {
+      const categories = ['Todas', ...new Set(products.map(p => p.category))];
+      const container = document.getElementById('category-filters');
+      container.innerHTML = categories.map(cat => {
+        const active = cat === selectedCategory;
+        return `
+          <button onclick="selectCategory('${cat}')"
+            class="shrink-0 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
+              active 
+                ? 'gold-gradient-bg text-wm-dark shadow-gold-sm' 
+                : 'bg-wm-dark text-zinc-300 border border-wm-border hover:border-wm-gold/50'
+            }">
+            ${cat}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectCategory(cat) {
+      selectedCategory = cat;
+      renderCategoryFilters();
+      filterCatalog();
+    }
+
+    function resetFilters() {
+      selectedCategory = 'Todas';
+      document.getElementById('search-input').value = '';
+      renderCategoryFilters();
+      filterCatalog();
+    }
+
+    function filterCatalog() {
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+      const filtered = products.filter(prod => {
+        const matchesCat = selectedCategory === 'Todas' || prod.category === selectedCategory;
+        const matchesQuery = !query || 
+          prod.name.toLowerCase().includes(query) ||
+          prod.code.toLowerCase().includes(query) ||
+          prod.category.toLowerCase().includes(query) ||
+          prod.description.toLowerCase().includes(query);
+        return matchesCat && matchesQuery;
+      });
+
+      document.getElementById('catalog-count').textContent = filtered.length;
+      const grid = document.getElementById('catalog-grid');
+      const emptyState = document.getElementById('catalog-empty');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      const cleanWhats = siteSettings.whatsapp.replace(/\D/g, '');
+
+      grid.innerHTML = filtered.map(prod => {
+        const quoteMessage = `Olá, equipe WM! Gostaria de cotar o seguinte produto do catálogo:\n• *Código:* ${prod.code}\n• *Produto:* ${prod.name}`;
+        const whatsappUrl = `https://wa.me/${cleanWhats}?text=${encodeURIComponent(quoteMessage)}`;
+
+        return `
+          <article class="bg-wm-card rounded-2xl border border-wm-border gold-border-subtle overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg">
+            <div>
+              <!-- Imagem do Produto -->
+              <div class="relative h-48 bg-wm-dark overflow-hidden border-b border-wm-border/80 flex items-center justify-center">
+                <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover" onerror="this.src='${createProductSVG(prod.code)}'" />
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-wm-dark/90 backdrop-blur-md border border-wm-gold/40 text-wm-goldLight font-mono text-xs font-bold">
+                  ${prod.code}
+                </span>
+                <span class="absolute bottom-2.5 right-2.5 px-2.5 py-0.5 rounded-md bg-black/75 text-zinc-300 text-[10px] font-medium">
+                  ${prod.category}
+                </span>
+              </div>
+
+              <!-- Detalhes Didáticos -->
+              <div class="p-5">
+                <h3 class="font-display font-bold text-base text-white leading-snug line-clamp-2">
+                  ${prod.name}
+                </h3>
+                <p class="text-xs text-zinc-400 mt-2.5 leading-relaxed">
+                  ${prod.description}
+                </p>
+              </div>
+            </div>
+
+            <!-- Botão de Cotação Direta -->
+            <div class="px-5 pb-5 pt-1">
+              <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer"
+                 class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors shadow-md">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                Cotar no WhatsApp
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // =========================================================================
+    // 3. ÁREA DO ADMINISTRADOR (LOGIN, CATÁLOGO CRUD E TEXTOS DO SITE)
+    // =========================================================================
+    function openAdminModal() {
+      document.getElementById('admin-modal').classList.remove('hidden');
+      if (isAdminLoggedIn) {
+        showAdminDashboard();
+      } else {
+        document.getElementById('admin-login-view').classList.remove('hidden');
+        document.getElementById('admin-dashboard-view').classList.add('hidden');
+        document.getElementById('admin-logout-btn').classList.add('hidden');
+      }
+      lucide.createIcons();
+    }
+
+    function closeAdminModal() {
+      document.getElementById('admin-modal').classList.add('hidden');
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('login-user').value.trim();
+      const pass = document.getElementById('login-pass').value;
+
+      if (user === 'admin' && pass === adminPassword) {
+        isAdminLoggedIn = true;
+        showToast('Bem-vindo ao Painel Administrativo WM!', 'success');
+        showAdminDashboard();
+      } else {
+        showToast('Usuário ou senha incorretos. Tente novamente.', 'error');
+      }
+    }
+
+    function logoutAdmin() {
+      isAdminLoggedIn = false;
+      document.getElementById('login-user').value = '';
+      document.getElementById('login-pass').value = '';
+      document.getElementById('admin-login-view').classList.remove('hidden');
+      document.getElementById('admin-dashboard-view').classList.add('hidden');
+      document.getElementById('admin-logout-btn').classList.add('hidden');
+      showToast('Sessão encerrada com segurança.', 'info');
+    }
+
+    function showAdminDashboard() {
+      document.getElementById('admin-login-view').classList.add('hidden');
+      document.getElementById('admin-dashboard-view').classList.remove('hidden');
+      document.getElementById('admin-logout-btn').classList.remove('hidden');
+
+      // Popula formulário de textos do site
+      document.getElementById('edit-hero-title').value = siteSettings.heroTitle;
+      document.getElementById('edit-hero-subtitle').value = siteSettings.heroSubtitle;
+      document.getElementById('edit-about-title').value = siteSettings.aboutTitle;
+      document.getElementById('edit-about-text').value = siteSettings.aboutText;
+      document.getElementById('edit-whatsapp').value = siteSettings.whatsapp;
+      document.getElementById('edit-maps').value = siteSettings.mapsUrl;
+      document.getElementById('edit-instagram').value = siteSettings.instagram;
+
+      renderAdminProductsList();
+      lucide.createIcons();
+    }
+
+    function switchAdminTab(tabName) {
+      ['products', 'site', 'security'].forEach(t => {
+        const panel = document.getElementById(`admin-tab-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabName) {
+          panel.classList.remove('hidden');
+          btn.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-wm-gold text-wm-dark';
+        } else {
+          panel.classList.add('hidden');
+          btn.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-wm-card text-zinc-300 hover:text-white';
+        }
+      });
+    }
+
+    // Upload de imagem convertida para Base64
+    function handleImageUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        uploadedBase64Image = e.target.result;
+        showToast('Imagem carregada com sucesso!', 'success');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleSaveProduct(e) {
+      e.preventDefault();
+      const id = document.getElementById('prod-id').value;
+      const code = document.getElementById('prod-code').value.trim().toUpperCase();
+      const name = document.getElementById('prod-name').value.trim();
+      const category = document.getElementById('prod-category').value;
+      const description = document.getElementById('prod-desc').value.trim();
+      const urlInput = document.getElementById('prod-image-url').value.trim();
+
+      let finalImage = uploadedBase64Image || urlInput;
+
+      if (id) {
+        // Editando produto existente
+        const idx = products.findIndex(p => p.id === id);
+        if (idx !== -1) {
+          if (!finalImage) finalImage = products[idx].image;
+          products[idx] = { id, code, name, category, description, image: finalImage };
+          showToast('Produto atualizado no catálogo!', 'success');
+        }
+      } else {
+        // Novo produto
+        if (!finalImage) {
+          finalImage = createProductSVG(code, '#D4AF37', 'hose');
+        }
+        const newProd = {
+          id: 'prod_' + Date.now(),
+          code,
+          name,
+          category,
+          description,
+          image: finalImage
+        };
+        products.unshift(newProd);
+        showToast('Novo produto adicionado ao catálogo!', 'success');
+      }
+
+      localStorage.setItem('wm_products', JSON.stringify(products));
+      resetProductForm();
+      renderAdminProductsList();
+      renderCategoryFilters();
+      filterCatalog();
+    }
+
+    function editProduct(id) {
+      const prod = products.find(p => p.id === id);
+      if (!prod) return;
+
+      document.getElementById('prod-id').value = prod.id;
+      document.getElementById('prod-code').value = prod.code;
+      document.getElementById('prod-name').value = prod.name;
+      document.getElementById('prod-category').value = prod.category;
+      document.getElementById('prod-desc').value = prod.description;
+      document.getElementById('prod-image-url').value = prod.image.startsWith('http') ? prod.image : '';
+      uploadedBase64Image = '';
+
+      document.getElementById('product-form-title').innerHTML = `<i data-lucide="edit-3" class="w-4 h-4"></i> Editando Produto: ${prod.code}`;
+      document.getElementById('cancel-edit-product-btn').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function deleteProduct(id) {
+      products = products.filter(p => p.id !== id);
+      localStorage.setItem('wm_products', JSON.stringify(products));
+      renderAdminProductsList();
+      renderCategoryFilters();
+      filterCatalog();
+      showToast('Produto removido do catálogo.', 'info');
+    }
+
+    function resetProductForm() {
+      document.getElementById('product-form').reset();
+      document.getElementById('prod-id').value = '';
+      uploadedBase64Image = '';
+      document.getElementById('product-form-title').innerHTML = `<i data-lucide="plus-circle" class="w-4 h-4"></i> Cadastrar Novo Produto no Catálogo`;
+      document.getElementById('cancel-edit-product-btn').classList.add('hidden');
+      lucide.createIcons();
+    }
+
+    function renderAdminProductsList() {
+      const list = document.getElementById('admin-products-list');
+      list.innerHTML = products.map(p => `
+        <div class="flex items-center justify-between gap-3 p-3 rounded-xl bg-wm-dark border border-wm-border">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="${p.image}" alt="${p.name}" class="w-11 h-11 rounded-lg object-cover bg-wm-surface shrink-0 border border-wm-border" />
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-mono font-bold text-wm-goldLight">${p.code}</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-wm-surface text-zinc-400">${p.category}</span>
+              </div>
+              <p class="text-xs font-semibold text-white truncate">${p.name}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button type="button" onclick="editProduct('${p.id}')" title="Editar" class="p-2 rounded-lg bg-wm-surface hover:bg-wm-card text-wm-goldLight border border-wm-border">
+              <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
+            </button>
+            <button type="button" onclick="deleteProduct('${p.id}')" title="Excluir" class="p-2 rounded-lg bg-wm-surface hover:bg-red-500/20 text-red-400 border border-wm-border">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function handleSaveSiteSettings(e) {
+      e.preventDefault();
+      siteSettings = {
+        heroTitle: document.getElementById('edit-hero-title').value,
+        heroSubtitle: document.getElementById('edit-hero-subtitle').value,
+        aboutTitle: document.getElementById('edit-about-title').value,
+        aboutText: document.getElementById('edit-about-text').value,
+        whatsapp: document.getElementById('edit-whatsapp').value.trim(),
+        mapsUrl: document.getElementById('edit-maps').value.trim(),
+        instagram: document.getElementById('edit-instagram').value.trim()
+      };
+
+      localStorage.setItem('wm_site_settings', JSON.stringify(siteSettings));
+      applySiteSettingsToDOM();
+      filterCatalog();
+      showToast('Informações do site atualizadas com sucesso!', 'success');
+    }
+
+    function resetSiteToDefault() {
+      siteSettings = { ...DEFAULT_SITE_SETTINGS };
+      localStorage.setItem('wm_site_settings', JSON.stringify(siteSettings));
+      applySiteSettingsToDOM();
+      showAdminDashboard();
+      showToast('Textos originais restaurados.', 'info');
+    }
+
+    function handleChangePassword(e) {
+      e.preventDefault();
+      const newPass = document.getElementById('new-admin-pass').value;
+      const confirmPass = document.getElementById('confirm-admin-pass').value;
+
+      if (newPass !== confirmPass) {
+        showToast('As senhas digitadas não coincidem.', 'error');
+        return;
+      }
+
+      adminPassword = newPass;
+      localStorage.setItem('wm_admin_pass', adminPassword);
+      document.getElementById('new-admin-pass').value = '';
+      document.getElementById('confirm-admin-pass').value = '';
+      showToast('Senha administrativa alterada com sucesso!', 'success');
+    }
+
+    // =========================================================================
+    // 4. SUPORTE IA (GEMINI API COM CONTEXTO TÉCNICO E DO CATÁLOGO WM)
+    // =========================================================================
+    let chatHistory = [];
+
+    function toggleAIChat() {
+      const win = document.getElementById('ai-chat-window');
+      win.classList.toggle('hidden');
+      if (!win.classList.contains('hidden')) {
+        document.getElementById('ai-input').focus();
+      }
+    }
+
+    function openAIChatWithPrompt(promptText) {
+      const win = document.getElementById('ai-chat-window');
+      win.classList.remove('hidden');
+      sendQuickPrompt(promptText);
+    }
+
+    function sendQuickPrompt(text) {
+      document.getElementById('ai-input').value = text;
+      handleAIChatSubmit(new Event('submit'));
+    }
+
+    function appendChatMessage(role, text) {
+      const container = document.getElementById('ai-messages');
+      const div = document.createElement('div');
+
+      if (role === 'user') {
+        div.className = 'flex justify-end';
+        div.innerHTML = `
+          <div class="bg-wm-gold text-wm-dark font-medium rounded-2xl rounded-tr-none px-3.5 py-2.5 text-xs max-w-[82%] leading-relaxed">
+            ${escapeHTML(text)}
+          </div>
+        `;
+      } else {
+        // Formatação simples de negrito e quebras de linha
+        const formatted = escapeHTML(text)
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\n/g, '<br>');
+
+        div.className = 'flex items-start gap-2.5';
+        div.innerHTML = `
+          <img src="Design_sem_nome__2_-removebg-preview.png" alt="WM" class="w-7 h-7 rounded-full bg-wm-card border border-wm-gold/40 object-contain shrink-0 mt-0.5" />
+          <div class="bg-wm-card border border-wm-border rounded-2xl rounded-tl-none p-3 text-zinc-200 text-xs max-w-[85%] leading-relaxed">
+            ${formatted}
+          </div>
+        `;
+      }
+
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+      const container = document.getElementById('ai-messages');
+      const div = document.createElement('div');
+      div.id = 'ai-typing-indicator';
+      div.className = 'flex items-start gap-2.5';
+      div.innerHTML = `
+        <img src="Design_sem_nome__2_-removebg-preview.png" alt="WM" class="w-7 h-7 rounded-full bg-wm-card border border-wm-gold/40 object-contain shrink-0" />
+        <div class="bg-wm-card border border-wm-border rounded-2xl rounded-tl-none px-4 py-3 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-wm-gold typing-dot"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-wm-gold typing-dot"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-wm-gold typing-dot"></span>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+      const el = document.getElementById('ai-typing-indicator');
+      if (el) el.remove();
+    }
+
+    async function handleAIChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('ai-input');
+      const userText = input.value.trim();
+      if (!userText) return;
+
+      input.value = '';
+      appendChatMessage('user', userText);
+      showTypingIndicator();
+
+      const catalogSummary = products.map(p => `- [${p.code}] ${p.name} (${p.category}): ${p.description}`).join('\n');
+
+      const systemInstruction = `Você é o Assistente Técnico Virtual da "WM Mangueiras e Conexões" (Grupo WM).
+Seu tom é prestativo, didático, educado e técnico na medida certa para ajudar clientes leigos ou profissionais de manutenção hidráulica e industrial.
+Informações oficiais da loja:
+- WhatsApp de vendas: ${formatPhoneDisplay(siteSettings.whatsapp)} (link: https://wa.me/${siteSettings.whatsapp.replace(/\D/g, '')})
+- Localização no Google Maps: ${siteSettings.mapsUrl}
+- Instagram: ${siteSettings.instagram}
+- Produtos atualmente cadastrados no catálogo da loja:
+${catalogSummary}
+
+Regras de resposta:
+1. Explique conceitos técnicos (como diferença entre roscas BSP, NPT, JIC 37°, ORFS, ou mangueiras R1AT, R2AT, 4SH) de forma clara e didática.
+2. Quando o cliente procurar um produto que está no catálogo acima, cite o código (ex: WM-1001) e o nome exato do item.
+3. Sempre que apropriado, incentive o cliente a clicar no botão "Cotar no WhatsApp" ou falar diretamente com o vendedor pelo número ${formatPhoneDisplay(siteSettings.whatsapp)} para confirmar medidas, bitolas e preços.
+4. Responda sempre em Português do Brasil de forma objetiva (máximo 2 parágrafos curtos).`;
+
+      chatHistory.push({ role: 'user', parts: [{ text: userText }] });
+
+      try {
+        const responseText = await callGeminiWithBackoff(chatHistory, systemInstruction);
+        removeTypingIndicator();
+        appendChatMessage('model', responseText);
+        chatHistory.push({ role: 'model', parts: [{ text: responseText }] });
+      } catch (err) {
+        removeTypingIndicator();
+        const fallbackMsg = `No momento estou com instabilidade na conexão, mas nossa equipe técnica está pronta para te atender agora mesmo pelo WhatsApp **${formatPhoneDisplay(siteSettings.whatsapp)}**!`;
+        appendChatMessage('model', fallbackMsg);
+      }
+    }
+
+    async function callGeminiWithBackoff(contents, systemInstructionText) {
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      const payload = {
+        contents: contents,
+        systemInstruction: {
+          parts: [{ text: systemInstructionText }]
+        }
+      };
+
+      const delays = [1000, 2000, 4000];
+      for (let attempt = 0; attempt <= delays.length; attempt++) {
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+
+          const result = await response.json();
+          const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) return text;
+          throw new Error('Empty response');
+        } catch (error) {
+          if (attempt === delays.length) throw error;
+          await new Promise(res => setTimeout(res, delays[attempt]));
+        }
+      }
+    }
+
+    // =========================================================================
+    // 5. UTILITÁRIOS DE UI
+    // =========================================================================
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, match => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[match]));
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const colors = {
+        success: 'border-emerald-500/60 bg-wm-card text-emerald-300',
+        error: 'border-red-500/60 bg-wm-card text-red-300',
+        info: 'border-wm-gold/60 bg-wm-card text-wm-goldLight'
+      };
+      toast.className = `pointer-events-auto px-4 py-3 rounded-xl border shadow-xl text-xs font-semibold flex items-center gap-2 transition-all duration-300 ${colors[type] || colors.info}`;
+      toast.textContent = message;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(20px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    // Inicialização ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+      applySiteSettingsToDOM();
+      renderCategoryFilters();
+      filterCatalog();
+    });
+  </script>
+</body>
+</html>
